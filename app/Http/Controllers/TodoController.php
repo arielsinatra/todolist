@@ -7,6 +7,7 @@ use App\Todo;
 
 class TodoController extends Controller
 {
+
 	public function index()
 	{
 		$todo = Todo::all();
@@ -22,5 +23,11 @@ class TodoController extends Controller
 
     	$todo = Todo::all();
     	return view('todo')->with('todo', $todo);
+    }
+
+     public function destroy($id_todo){
+       
+        Todo::destroy($id_todo);
+        return redirect('todo');
     }
 }
